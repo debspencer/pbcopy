@@ -1,0 +1,49 @@
+syntax = "proto3";
+option go_package = "sonobi/neo-go/sonobi/util/pbcopy/test-fixtures;test";
+
+package test;
+
+message Child {
+    string kids = 1;
+
+}
+
+message Base {
+    enum OnOff {
+        off = 0;
+	on  = 1;
+    }
+
+    bool bit                            = 1;
+    int32 smallint                      = 2;
+    int64 largeint                      = 3;
+    float smallfloat                    = 4;
+    double largefloat                   = 5;
+    string text                         = 6;
+    Child child                         = 7;
+    OnOff onoff                         = 8;
+
+    optional bool optbit                = 9;
+    optional int32 optsmallint          = 10;
+    optional int64 optlargeint          = 11;
+    optional float optsmallfloat        = 12;
+    optional double optlargefloat       = 13;
+    optional string opttext             = 14;
+    optional Child optchild             = 15;
+    optional OnOff optonoff             = 16;
+
+    repeated bool listbit               = 17;
+    repeated int32 listsmallint         = 18;
+    repeated int64 listlargeint         = 19;
+    repeated float listsmallfloat       = 20;
+    repeated double listlargefloat      = 21;
+    repeated string listtext            = 22;
+    repeated Child listchild            = 23;
+    repeated OnOff listonoff            = 24;
+
+    map<int32, int32> mapsmallint       = 25;
+    map<int64, int64> maplargeint       = 26;
+    map<string, string> maptext         = 27;
+
+    map<string, Child>  mapchild        = 28;
+}
