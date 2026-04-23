@@ -11,6 +11,7 @@ import (
 func main() {
 	structName := flag.String("m", "", "Base protobuf message to create copy method")
 	outFile := flag.String("o", "", "Output file (defaults to <Base function>.go")
+	filternull := flag.Bool("-filternull", false, "Remove null map and slice elmeents")
 
 	// process command line
 	flag.Parse()
@@ -27,6 +28,9 @@ func main() {
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err.Error())
 		os.Exit(-1)
+	}
+	if *filternull {
+		pbreader.FilterNull()
 	}
 
 	var output string
